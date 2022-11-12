@@ -13,4 +13,9 @@ describe "New paper page", type: :feature do
     expect(page).to have_field('paper[venue]')
     expect(page).to have_field('paper[year]')
   end
+
+  it "should not accept papers without title" do
+    @paper = Paper.new
+    expect(@paper).to_not be_valid
+  end
 end
